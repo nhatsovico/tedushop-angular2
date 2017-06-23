@@ -5,7 +5,8 @@ import { HomeComponent } from './home.component';
 
 
 const homeRoutes: Routes = [
-  {path:'', component:HomeComponent}
+  {path:'', redirectTo:'index',pathMatch:'full'},
+  {path:'index', component:HomeComponent}
 ]
 
 @NgModule({
@@ -15,4 +16,6 @@ const homeRoutes: Routes = [
   ],
   declarations: [HomeComponent]
 })
-export class HomeModule { }
+export class HomeModule { 
+  
+}
