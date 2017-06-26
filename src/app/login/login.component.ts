@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotificationService } from '../core/services/notification.service';
+import { AuthenService } from '../core/services/authen.service';
+import { MessageConstants } from '../core/common/message.constants';
+import { UrlConstants } from '../core/common/url.constants';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +11,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  loading = false;
+  model: any = {};
+  returnUrl: string;
+  constructor(private authenService: AuthenService, private notificationService: NotificationService,
+    private router: Router) { }
 
   ngOnInit() {
+  }
+  login() {
+    // debugger;
+    this.loading = true;
+    this.authenService.login(this.model.username, this.model.password).subscribe(data => {
+      this.router.navigate([UrlConstants.HOME]);
+    }, error => {
+      if (error.status === 400) {
+        // alert(JSON.stringify(error));
+        this.notificationService.printErrorMessage(JSON.parse(error._body).error_description);
+      }
+      else {
+        this.notificationService.printErrorMessage(MessageConstants.LOGIN_AGAIN_MSG);
+      }
+
+      this.loading = false;
+    });
   }
 
 }

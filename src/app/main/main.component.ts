@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenService} from '../core/services/authen.service';
+import {UtilityService} from '../core/services/utility.service';
+import {UrlConstants} from '../core/common/url.constants';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authenService: AuthenService, private _utilityService:UtilityService) { }
 
   ngOnInit() {
   }
-
+  logout(){
+    this._authenService.logout();
+    this._utilityService.navigate(UrlConstants.LOGIN);
+  }
 }
