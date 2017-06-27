@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenService.login(this.model.username, this.model.password).subscribe(data => {
       this.router.navigate([UrlConstants.HOME]);
+
     }, error => {
       if (error.status === 400) {
         // alert(JSON.stringify(error));
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
 
       this.loading = false;
     });
+
   }
 
 }

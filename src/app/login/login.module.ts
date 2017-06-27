@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import { Routes,RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 import { NotificationService } from '../core/services/notification.service';
 import { AuthenService } from '../core/services/authen.service';
+import { UtilityService } from '../core/services/utility.service';
 import { LoginComponent } from './login.component';
 
-const loginRoutes:Routes = [
-  {path:'',component: LoginComponent}
+const loginRoutes: Routes = [
+  { path: '', component: LoginComponent }
 ]
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ const loginRoutes:Routes = [
     RouterModule.forChild(loginRoutes),
     FormsModule, HttpModule
   ],
-  providers:[AuthenService,NotificationService],
+  providers: [AuthenService, NotificationService, UtilityService],
   declarations: [LoginComponent]
 })
 export class LoginModule { }
