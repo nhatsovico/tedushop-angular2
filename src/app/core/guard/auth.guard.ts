@@ -5,7 +5,7 @@ import { UrlConstants } from '../common/url.constants';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
+            
     constructor(private router: Router) { }
 
     canActivate(activateRoute: ActivatedRouteSnapshot, routerState: RouterStateSnapshot) {
@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
             return true;
         }
         else {
+
             this.router.navigate ([UrlConstants.LOGIN], {
                 queryParams: {
                     returnUrl: routerState.url
