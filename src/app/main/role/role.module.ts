@@ -8,6 +8,7 @@ import { NotificationService } from '../../core/services/notification.service';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
+
 const roleRoutes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: RoleComponent }
