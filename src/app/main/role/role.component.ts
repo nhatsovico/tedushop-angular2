@@ -8,8 +8,9 @@ import { DataService } from '../../core/services/data.service';
 })
 export class RoleComponent implements OnInit {
   public pageIndex: number = 1;
-  public pageSize: number = 20;
+  public pageSize: number = 2;
   public pageDisplay: number = 10;
+  public totalRow: number;
   public filter: string = '';
   public roles: any[];
   constructor(private _dataService: DataService) { }
@@ -20,9 +21,15 @@ export class RoleComponent implements OnInit {
 
   loadData() {
     this._dataService.get(`/api/appRole/getlistpaging?page=${this.pageIndex}&pageSize=${this.pageSize}&filter=${this.filter}`)
-      .subscribe((respone: any) => {
-        this.roles = respone.Items;
-    });
+      .subscribe((response: any) => {
+        this.roles = response.Items;
+        this.pageIndex = response.PageIndex;
+        this.pageSize = response.PageSize;
+        this.totalRow = response.TotalRows;
+      });
   }
-
+  pageChanged(event: any): void {
+    this.pageIndex = event.page;
+    this.loadData();
+  }
 }

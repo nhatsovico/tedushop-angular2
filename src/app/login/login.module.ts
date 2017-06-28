@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { NotificationService } from '../core/services/notification.service';
 import { AuthenService } from '../core/services/authen.service';
@@ -15,7 +14,7 @@ const loginRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(loginRoutes),
-    FormsModule, HttpModule
+    FormsModule
   ],
   providers: [AuthenService, NotificationService, UtilityService],
   declarations: [LoginComponent]
