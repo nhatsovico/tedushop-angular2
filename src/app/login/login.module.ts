@@ -6,6 +6,7 @@ import { NotificationService } from '../core/services/notification.service';
 import { AuthenService } from '../core/services/authen.service';
 import { UtilityService } from '../core/services/utility.service';
 import { LoginComponent } from './login.component';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 const loginRoutes: Routes = [
   { path: '', component: LoginComponent }
@@ -14,7 +15,8 @@ const loginRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(loginRoutes),
-    FormsModule
+    FormsModule,
+    ReCaptchaModule
   ],
   providers: [AuthenService, NotificationService, UtilityService],
   declarations: [LoginComponent]

@@ -6,4 +6,5 @@ export class MessageConstants{
     public static UPDATED_OK_MSG = "Cập nhật thành công";
     public static DELETED_OK_MSG = "Xóa thành công";
     public static WRONG_PASSWORD = "Nhập sai mật khẩu";
+    public static WRONG_CAPTCHAR = "Nhập sai captchar";
 }
