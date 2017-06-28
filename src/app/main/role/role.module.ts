@@ -6,6 +6,7 @@ import { RoleComponent } from './role.component';
 import { DataService } from '../../core/services/data.service';
 import { NotificationService } from '../../core/services/notification.service';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 const roleRoutes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const roleRoutes: Routes = [
     CommonModule,
     PaginationModule,
     FormsModule,
+    ModalModule.forRoot(),
     RouterModule.forChild(roleRoutes)
   ],
   providers: [DataService, NotificationService],

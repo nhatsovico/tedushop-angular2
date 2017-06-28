@@ -58,7 +58,7 @@ export class NotificationService {
     };
    }
 printSuccessMessage(message: string){
-  this._notifier.suscess(message);
+  this._notifier.success(message);
 }
 printErrorMessage(message: string){
   this._notifier.error(message);

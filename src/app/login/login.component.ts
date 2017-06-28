@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
   }
   login() {
     // debugger;
-    if (this.invalidCaptchar ==false){
-      this.notificationService.printErrorMessage(MessageConstants.WRONG_CAPTCHAR);
-      return;
-    }
+    // if (this.invalidCaptchar ==false){
+    //   this.notificationService.printErrorMessage(MessageConstants.WRONG_CAPTCHAR);
+    //   return;
+    // }
     this.loading = true;
     this.authenService.login(this.model.username, this.model.password).subscribe(data => {
       this.router.navigate([UrlConstants.HOME]);
